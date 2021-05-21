@@ -125,5 +125,5 @@ pub fn hex_hash<T: Hash>(t: &T) -> String {
 //TODO verify we are only touching 'offset' and 'limit'
 pub fn extract_query_string(raw_link: &String) -> Option<String> {
     let parsed = Absolute::parse(raw_link).ok()?;
-    parsed.origin()?.query().map(|it| it.to_string())
+    parsed.query().map(|it| it.to_string())
 }
