@@ -50,24 +50,20 @@ pub async fn get_all_transactions(
             .as_ref()
             .and_then(|link| extract_query_string(link))
             .map(|link| {
-                context.build_absolute_url(uri!(
-                    crate::routes::transactions::all(
-                        safe_address,
-                        Some(link)
-                    )
-                ))
+                context.build_absolute_url(uri!(crate::routes::transactions::all(
+                    safe_address,
+                    Some(link)
+                )))
             }),
         previous: backend_transactions
             .previous
             .as_ref()
             .and_then(|link| extract_query_string(link))
             .map(|link| {
-                context.build_absolute_url(uri!(
-                    crate::routes::transactions::all(
-                        safe_address,
-                        Some(link)
-                    )
-                ))
+                context.build_absolute_url(uri!(crate::routes::transactions::all(
+                    safe_address,
+                    Some(link)
+                )))
             }),
         results: service_transactions,
     })
