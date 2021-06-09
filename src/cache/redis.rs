@@ -11,6 +11,7 @@ type RedisConnection = PooledConnection<redis::Client>;
 pub struct ServiceCache<'r>(State<'r, RedisPool>);
 
 pub fn create_pool() -> RedisPool {
+    println!("{}", redis_url());
     let client = redis::Client::open(redis_url()).unwrap();
     Pool::builder().max_size(15).build(client).unwrap()
 }
